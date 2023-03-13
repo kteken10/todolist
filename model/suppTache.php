@@ -11,9 +11,7 @@ if (isset($_GET['id'])) {
     $sql="DELETE FROM todolist WHERE id = ?";
     $req = $connexion->prepare($sql);
     $req->execute([$id]);
-    $_SESSION['message']['text']="Todo ajoutée avec succès";
-    $_SESSION['message']['type']="success";
-    // $do->prepare("DELETE FROM todolist WHERE id = ?")->execute([$id]);
+   
     
     // renvoyer une réponse HTTP 200 OK si la suppression a réussi
     http_response_code(200);

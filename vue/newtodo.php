@@ -98,19 +98,19 @@ include 'pied.php';
         var xhr = new XMLHttpRequest();
         
         // définir la fonction de rappel à exécuter lorsque la réponse est reçue
-        // xhr.onreadystatechange = function() {
-        //     if (xhr.readyState === XMLHttpRequest.DONE) {
-        //         if (xhr.status === 200) {
-        //             // la suppression a réussi
-        //             alert("La tâche a été supprimée avec succès !");
-        //             // recharger la page pour afficher les changements
-        //             window.location.reload();
-        //         } else {
-        //             // la suppression a échoué
-        //             alert("La suppression de la tâche a échoué. Veuillez réessayer plus tard."+id);
-        //         }
-        //     }
-        // };
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // la suppression a réussi
+                    alert("La tâche a été supprimée avec succès !");
+                    // recharger la page pour afficher les changements
+                    window.location.reload();
+                } else {
+                    // la suppression a échoué
+                    alert("La suppression de la tâche a échoué. Veuillez réessayer plus tard."+id);
+                }
+            }
+        };
         
         // préparer la requête HTTP DELETE pour supprimer la tâche avec l'ID donné
         xhr.open("DELETE", "../model/suppTache.php?id=" + encodeURIComponent(id), true);
